@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require "splitbar"
+
+
+stock = Splitbar::Knife.new.cut(
+  mm: 250,
+  needs: [
+    {mm: 40, number_of: 12},
+    {mm: 60, number_of: 6},
+    {mm: 100, number_of: 6},
+    {mm: 200, number_of: 6},
+    {mm: 210, number_of: 6},
+  ]
+)
+stock.each do |p|
+  puts "scrap :#{p.length}   parts: #{p.parts.join(", ")}"
+end
